@@ -1,6 +1,6 @@
 ﻿namespace WorkWithMe;
 
-partial class Form1
+partial class SignIn
 {
     /// <summary>
     ///  Required designer variable.
@@ -43,7 +43,6 @@ partial class Form1
         usernameTextbox.Name = "usernameTextbox";
         usernameTextbox.Size = new System.Drawing.Size(136, 23);
         usernameTextbox.TabIndex = 0;
-        usernameTextbox.TextChanged += textBox1_TextChanged;
         // 
         // passwordTextbox
         // 
@@ -52,7 +51,6 @@ partial class Form1
         passwordTextbox.PasswordChar = '*';
         passwordTextbox.Size = new System.Drawing.Size(136, 23);
         passwordTextbox.TabIndex = 1;
-        passwordTextbox.TextChanged += textBox2_TextChanged;
         // 
         // button1
         // 
@@ -96,11 +94,11 @@ partial class Form1
         passwordErrorTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)((byte)224)), ((int)((byte)224)), ((int)((byte)224)));
         passwordErrorTextbox.Location = new System.Drawing.Point(322, 251);
         passwordErrorTextbox.Name = "passwordErrorTextbox";
-        passwordErrorTextbox.Size = new System.Drawing.Size(136, 13);
+        passwordErrorTextbox.Size = new System.Drawing.Size(317, 13);
         passwordErrorTextbox.TabIndex = 5;
         passwordErrorTextbox.Text = "Password cannot be empty";
         // 
-        // Form1
+        // SignIn
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

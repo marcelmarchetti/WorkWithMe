@@ -19,6 +19,14 @@ public class Validators
     {
         if (string.IsNullOrWhiteSpace(passwordTextbox.Text))
         {
+            passwordErrorTextbox.Text = "Password cannot be empty";
+            passwordErrorTextbox.ForeColor = AppColors.Error;
+            return true;
+        }
+
+        if (passwordTextbox.Text.Length < 8)
+        {
+            passwordErrorTextbox.Text = "Password must be at least 8 characters";
             passwordErrorTextbox.ForeColor = AppColors.Error;
             return true;
         }
