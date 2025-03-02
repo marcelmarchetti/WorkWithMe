@@ -49,7 +49,11 @@ public partial class TopNavigationBar : UserControl
 
     private void btnHome_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("Home Page");
+        var project = new Home();
+        var form = this.FindForm();
+        
+        project.Show();
+        form?.Hide();
     }
 
     private void btnProjects_Click(object sender, EventArgs e)
