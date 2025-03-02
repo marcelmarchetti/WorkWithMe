@@ -1,4 +1,6 @@
-﻿namespace WorkWithMe.Utils.Components;
+﻿using WorkWithMe.View.home;
+
+namespace WorkWithMe.Utils.Components;
 
 public partial class TopNavigationBar : UserControl
 {
@@ -37,7 +39,12 @@ public partial class TopNavigationBar : UserControl
     
     private void MenuItem_Click(object sender, EventArgs e, string itemName)
     {
-        MessageBox.Show($"Selected {itemName}");
+        var project = new Project();
+        var form = this.FindForm();
+        
+        project.Show();
+        form?.Hide();
+
     }
 
     private void btnHome_Click(object sender, EventArgs e)

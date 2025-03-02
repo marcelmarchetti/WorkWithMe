@@ -25,6 +25,9 @@
       <Compile Update="View\home\Project.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Utils\Components\TaskControl.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

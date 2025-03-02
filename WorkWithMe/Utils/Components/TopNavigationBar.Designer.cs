@@ -98,7 +98,7 @@ partial class TopNavigationBar
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnContact);
             this.Name = "TopNavBar";
-            this.Size = new System.Drawing.Size(500, 50);
+            this.Size = new System.Drawing.Size(500, Values.topNavBarHeight);
             this.ResumeLayout(false);
         }
 
