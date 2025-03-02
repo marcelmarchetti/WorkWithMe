@@ -45,7 +45,7 @@ partial class Project
         this.Controls.Add(this.panelTodo);
 
         Label labelTodo = new Label();
-        labelTodo.Text = "Por Hacer";
+        labelTodo.Text = "Backlog";
         labelTodo.Location = new System.Drawing.Point(10, 10);
         this.panelTodo.Controls.Add(labelTodo);
 
@@ -56,7 +56,7 @@ partial class Project
         this.Controls.Add(this.panelInProgress);
 
         Label labelInProgress = new Label();
-        labelInProgress.Text = "En Progreso";
+        labelInProgress.Text = "In Progress";
         labelInProgress.Location = new System.Drawing.Point(10, 10);
         this.panelInProgress.Controls.Add(labelInProgress);
 
@@ -67,7 +67,7 @@ partial class Project
         this.Controls.Add(this.panelDone);
 
         Label labelDone = new Label();
-        labelDone.Text = "Completado";
+        labelDone.Text = "Done";
         labelDone.Location = new System.Drawing.Point(10, 10);
         this.panelDone.Controls.Add(labelDone);
 
