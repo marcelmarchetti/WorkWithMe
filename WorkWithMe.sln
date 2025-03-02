@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkWithMe", "WorkWithMe\WorkWithMe.csproj", "{D5E4E75B-AEA8-490E-9EA5-30EC60F4DFAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5E4E75B-AEA8-490E-9EA5-30EC60F4DFAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E4E75B-AEA8-490E-9EA5-30EC60F4DFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E4E75B-AEA8-490E-9EA5-30EC60F4DFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E4E75B-AEA8-490E-9EA5-30EC60F4DFAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
