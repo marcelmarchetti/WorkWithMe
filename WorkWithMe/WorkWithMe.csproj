@@ -8,4 +8,31 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Model\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="View\auth\SignIn.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\home\Home.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Utils\Components\TopNavigationBar.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+      <Compile Update="View\home\Project.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Utils\Components\TaskControl.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Icons\material_add.png" />
+      <EmbeddedResource Include="Resources\Icons\material_add.png" />
+    </ItemGroup>
+
 </Project>
