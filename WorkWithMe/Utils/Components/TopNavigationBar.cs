@@ -11,7 +11,7 @@ public partial class TopNavigationBar : UserControl
         this.btnProjects.Click += BtnProjects_Click;
     }
     
-    private void BtnProjects_Click(object sender, EventArgs e)
+    private void BtnProjects_Click(object? sender, EventArgs e)
     {
         LoadDropdownItems();
         projectsDropdown.Show(btnProjects, new System.Drawing.Point(0, btnProjects.Height));
@@ -37,7 +37,7 @@ public partial class TopNavigationBar : UserControl
         }
     }
     
-    private void MenuItem_Click(object sender, EventArgs e, string itemName)
+    private void MenuItem_Click(object? sender, EventArgs e, string itemName)
     {
         var project = new Project();
         var form = this.FindForm();

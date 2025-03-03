@@ -6,9 +6,6 @@ namespace WorkWithMe.View.home;
 
 public partial class Project : Form
 {
-    private TaskControl _draggingTask = null;
-    private Point _draggingOffset;
-    
     public Project()
     {
         InitializeComponent();
@@ -51,10 +48,10 @@ public partial class Project : Form
         panelDone.DragDrop += Panel_DragDrop;
 
         //TODO: Load from API
-        AddTaskToPanel(panelTodo, "Task 1");
-        AddTaskToPanel(panelTodo, "Task 2");
-        AddTaskToPanel(panelInProgress, "Task 3");
-        AddTaskToPanel(panelDone, "Task 4");
+        AddTaskToPanel(panelTodo, "Task 1", "");
+        AddTaskToPanel(panelTodo, "Task 2", "");
+        AddTaskToPanel(panelInProgress, "Task 3", "");
+        AddTaskToPanel(panelDone, "Task 4", "");
     }
      
     
@@ -95,16 +92,16 @@ public partial class Project : Form
             if (!string.IsNullOrEmpty(taskName))
             {
                 // Crear y agregar la nueva tarea al panel (sin olvidar reorganizar)
-                AddTaskToPanel(targetPanel, taskName);
+                AddTaskToPanel(targetPanel, taskName, taskDesc);
             }
         }
     }
 
 
      
-    private void AddTaskToPanel(Panel panel, string taskName)
+    private void AddTaskToPanel(Panel panel, string taskName, string taskDesc)
     {
-        TaskControl taskControl = new TaskControl(taskName)
+        TaskControl taskControl = new TaskControl(taskName, taskDesc)
         {
             Location = new Point(10, panel.Controls.Count * 45 + 10)
         };
@@ -113,22 +110,22 @@ public partial class Project : Form
     }
 
    
-    private void Panel_DragEnter(object sender, DragEventArgs e)
+    private void Panel_DragEnter(object? sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(typeof(TaskControl)))
+        if (e.Data != null && e.Data.GetDataPresent(typeof(TaskControl)))
             e.Effect = DragDropEffects.Move;
         else
             e.Effect = DragDropEffects.None;
     }
 
     
-    private void Panel_DragDrop(object sender, DragEventArgs e)
+    private void Panel_DragDrop(object? sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(typeof(TaskControl)))
+        if (e.Data != null && e.Data.GetDataPresent(typeof(TaskControl)))
         {
-            TaskControl task = (TaskControl)e.Data.GetData(typeof(TaskControl));
-            Panel sourcePanel = task.Parent as Panel;
-            Panel targetPanel = sender as Panel;
+            TaskControl task = (TaskControl)e.Data.GetData(typeof(TaskControl))!;
+            Panel? sourcePanel = task.Parent as Panel;
+            Panel? targetPanel = sender as Panel;
             
             if (targetPanel != null)
             {

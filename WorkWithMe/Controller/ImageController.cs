@@ -4,7 +4,7 @@ namespace WorkWithMe.Controller;
 
 public class ImageController
 {
-    public static Image LoadEmbeddedImage(string resourceName)
+    public static Image? LoadEmbeddedImage(string resourceName)
     {
         var assembly = Assembly.GetExecutingAssembly();
         var resourcePath = assembly.GetManifestResourceNames()
@@ -12,7 +12,7 @@ public class ImageController
 
         if (resourcePath != null)
         {
-            using (Stream stream = assembly.GetManifestResourceStream(resourcePath))
+            using (Stream? stream = assembly.GetManifestResourceStream(resourcePath))
             {
                 if (stream != null)
                 {
