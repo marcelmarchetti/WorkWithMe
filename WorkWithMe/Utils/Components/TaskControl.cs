@@ -11,13 +11,20 @@ public partial class TaskControl : UserControl
     public string TaskName { get; set; }
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string TaskDescription { get; set; }
-    
 
     public TaskControl(string taskName)
     {
         InitializeComponent();
         TaskName = taskName;
         lblTaskName.Text = taskName;
+        
+        this.MouseDown += TaskControl_MouseDown;
+        
+    }
+    
+    private void TaskControl_MouseDown(object sender, MouseEventArgs e)
+    {
+        this.DoDragDrop(this, DragDropEffects.Move);
     }
     
     

@@ -1,5 +1,6 @@
 ﻿using WorkWithMe.Constants;
 using WorkWithMe.Utils.Components;
+using static WorkWithMe.Controller.ImageController;
 
 namespace WorkWithMe.View.home;
 
@@ -15,6 +16,10 @@ public partial class Project : Form
         topNavBar.Dock = DockStyle.Top;
         this.Controls.Add(topNavBar);
         InitializeKanbanBoard();
+        
+        iconAddTodo.Image = LoadEmbeddedImage("WorkWithMe.Resources.Icons.material_add.png");
+        iconAddInProgress.Image = LoadEmbeddedImage("WorkWithMe.Resources.Icons.material_add.png");
+        iconAddDone.Image = LoadEmbeddedImage("WorkWithMe.Resources.Icons.material_add.png");
     }
     
      private void InitializeKanbanBoard()
@@ -51,6 +56,51 @@ public partial class Project : Form
         AddTaskToPanel(panelInProgress, "Task 3");
         AddTaskToPanel(panelDone, "Task 4");
     }
+     
+    
+    private void ShowAddTaskDialog(Panel targetPanel)
+    {
+        // Crear un formulario simple para ingresar datos
+        Form dialog = new Form();
+        dialog.Text = "Nueva Tarea";
+        dialog.Size = new Size(350, 200);
+        dialog.FormBorderStyle = FormBorderStyle.FixedDialog;
+        dialog.StartPosition = FormStartPosition.CenterParent;
+        dialog.MaximizeBox = false;
+        dialog.MinimizeBox = false;
+
+        Label lblName = new Label() { Text = "Nombre:", Location = new Point(10, 20), AutoSize = true };
+        TextBox txtName = new TextBox() { Location = new Point(100, 20), Width = 180 };
+
+        Label lblDesc = new Label() { Text = "Descripción:", Location = new Point(10, 60), AutoSize = true };
+        TextBox txtDesc = new TextBox() { Location = new Point(100, 60), Width = 180, Height = 60, Multiline = true };
+
+        Button btnOk = new Button() { Text = "OK", Location = new Point(80, 130), DialogResult = DialogResult.OK };
+        Button btnCancel = new Button() { Text = "Cancelar", Location = new Point(170, 130), DialogResult = DialogResult.Cancel };
+
+        dialog.Controls.Add(lblName);
+        dialog.Controls.Add(txtName);
+        dialog.Controls.Add(lblDesc);
+        dialog.Controls.Add(txtDesc);
+        dialog.Controls.Add(btnOk);
+        dialog.Controls.Add(btnCancel);
+
+        dialog.AcceptButton = btnOk;
+        dialog.CancelButton = btnCancel;
+
+        if (dialog.ShowDialog() == DialogResult.OK)
+        {
+            string taskName = txtName.Text.Trim();
+            string taskDesc = txtDesc.Text.Trim();
+            if (!string.IsNullOrEmpty(taskName))
+            {
+                // Crear y agregar la nueva tarea al panel (sin olvidar reorganizar)
+                AddTaskToPanel(targetPanel, taskName);
+            }
+        }
+    }
+
+
      
     private void AddTaskToPanel(Panel panel, string taskName)
     {
@@ -123,5 +173,20 @@ public partial class Project : Form
             task.BringToFront();
             yOffset += task.Height + spacing;
         }
+    }
+
+    private void IconAddTodo_Click(object sender, EventArgs e)
+    {
+        ShowAddTaskDialog(panelTodo);
+    }
+
+    private void IconAddInProgress_Click(object sender, EventArgs e)
+    {
+        ShowAddTaskDialog(panelInProgress);
+    }
+
+    private void IconAddDone_Click(object sender, EventArgs e)
+    {
+        ShowAddTaskDialog(panelDone);
     }
 }

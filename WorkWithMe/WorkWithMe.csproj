@@ -30,4 +30,9 @@
       </Compile>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Resources\Icons\material_add.png" />
+      <EmbeddedResource Include="Resources\Icons\material_add.png" />
+    </ItemGroup>
+
 </Project>
